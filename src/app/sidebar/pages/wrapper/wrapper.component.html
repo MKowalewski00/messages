@@ -1,0 +1,26 @@
+<mat-sidenav-container autosize>
+  <mat-sidenav #sidenav mode="side" opened="true">
+    <mat-nav-list>
+
+      <mat-list-item (click)="isExpanded = !isExpanded">
+        <mat-icon mat-list-icon class="chevron-button sidenav-button menu-item" [ngClass]="{'open': isExpanded}">menu</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">Menu</span>
+      </mat-list-item>
+
+
+      <mat-list-item *ngFor="let item of menu" [routerLink]='item.routerl' (click)="isExpanded = true" class="menu-item" >
+        <mat-icon mat-list-icon>{{item.icon}}</mat-icon>
+        <span *ngIf="isExpanded">{{item.name}}</span>
+      </mat-list-item>
+
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <div class="content">
+    <mat-toolbar class="toolbar">
+      <h4>Post APP</h4>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-sidenav-container>
