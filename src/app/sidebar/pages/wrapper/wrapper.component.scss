@@ -22,11 +22,15 @@
 {
   color: white;
 }
-.content {
-  .toolbar {
-    justify-content: right;
-    align-items: center;
-    color: white;
-    background-color: lighten(rebeccapurple, 15%);
-  }
+
+.content-wrapper {
+
+  height: 93%;
+}
+
+.toolbar {
+  justify-content: right;
+  align-items: center;
+  color: white;
+  background-color: lighten(rebeccapurple, 15%);
 }

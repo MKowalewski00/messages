@@ -1,0 +1,17 @@
+<div class="container">
+
+  <div class="user-info">
+    <mat-icon class="icon">account_circle</mat-icon>
+    <div class="media-body">
+      <h1>Hello: <strong>{{(displayName) ? user.displayName : 'User'}}</strong></h1>
+      <p>User ID: <strong>{{uid}}</strong></p>
+      <p>Email: <strong>{{email}}</strong></p>
+      <p>Email Verified: <strong>{{emailVerified}}</strong></p>
+      <button mat-raised-button (click)="logout()">Logout</button>
+<!--      <button mat-raised-button (click)="updateProfile()">Update</button>-->
+    </div>
+  </div>
+
+
+
+</div>

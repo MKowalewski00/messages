@@ -5,11 +5,6 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./sidebar/sidebar.module').then(m => m.SidebarModule)
-  },
-  {
-    path: '**',
-    redirectTo: '',
-    pathMatch: 'full'
   }
 
 ];

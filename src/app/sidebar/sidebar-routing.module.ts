@@ -2,8 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {WrapperComponent} from "./pages/wrapper/wrapper.component";
 import {FirstcompComponent} from "./pages/firstcomp/firstcomp.component";
-import {SecondcompComponent} from "./pages/secondcomp/secondcomp.component";
 import {InfoComponent} from "./pages/info/info.component";
+import {AuthGuard} from "../shared/guard/auth.guard";
+import {UserinfoPageComponent} from "./pages/userinfo-page/userinfo-page.component";
+import {SecondcompComponent} from "./pages/secondcomp/secondcomp.component";
 
 const routes: Routes = [
   {
@@ -21,6 +23,11 @@ const routes: Routes = [
       {
         path: 'infocomponent',
         component: InfoComponent
+      },
+      {
+        path: 'userinfo',
+        component: UserinfoPageComponent,
+        canActivate: [AuthGuard]
       }
     ]
   },

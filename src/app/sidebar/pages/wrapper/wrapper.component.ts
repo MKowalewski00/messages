@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-wrapper',
@@ -7,34 +7,56 @@ import { Component, OnInit } from '@angular/core';
 })
 
 
+export class WrapperComponent{
 
-export class WrapperComponent implements OnInit {
+  // constructor(private _authService: AuthService) {
+  // }
+  //
+  // ngOnInit() {
+  //   if(this._authService.isLoggedIn) {
+  //     this.isLoggedin = true
+  //   } else {
+  //     this.isLoggedin = false
+  //   }
+  // }
 
+  // isLoggedin: boolean = false
   isExpanded: boolean = false;
-  menu: {routerl: string, icon: string, name: string}[] =
+  menu: MenuType[] =
     [
       {
-        routerl: "firstcomponent",
+        routerLink: "firstcomponent",
         icon: "filter_1",
         name: "First Component"
       },
       {
-        routerl: "secondcomponent",
-        icon: "filter_2",
-        name: "Second Component"
+        routerLink: "userinfo",
+        icon: "account_circle",
+        name: "User"
       },
       {
-        routerl: "infocomponent",
+        routerLink: "infocomponent",
         icon: "info",
         name: "Info"
       },
     ];
+  // menuLoggedIn: MenuType[] = [
+  //   {
+  //     routerLink: "firstcomponent",
+  //     icon: "filter_3",
+  //     name: "First Component"
+  //   },
+  //   {
+  //     routerLink: "firstcomponent",
+  //     icon: "filter_3",
+  //     name: "First Component"
+  //   },
+  // ]
 
-  constructor() {}
+}
 
-  ngOnInit(): void {
-  }
-
-
-
+interface MenuType {
+  routerLink: string,
+  icon: string,
+  name: string
 }
