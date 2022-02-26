@@ -38,9 +38,10 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.SetUserData(result.user);
-        this.ngZone.run(() => {
-          this.router.navigate(['/userinfo']);
-        });
+        localStorage.setItem('user', JSON.stringify(result))
+        // this.ngZone.run(() => {
+        //   this.router.navigate(['userinfo']);
+        // });
       })
       .catch((error) => {
         window.alert(error.message);
@@ -66,7 +67,6 @@ export class AuthService {
         // this.router.navigate(['verify-email-address']);
       });
   }
-  // Reset Forggot password
   ForgotPassword(passwordResetEmail: string) {
     return this.afAuth
       .sendPasswordResetEmail(passwordResetEmail)
@@ -77,8 +77,7 @@ export class AuthService {
         window.alert(error);
       });
   }
-  // Returns true when user is looged in and email is verified
-  get isLoggedIn(): boolean {
+  get isLoggedIn() : boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
     if(user !== null)
     {
@@ -86,7 +85,6 @@ export class AuthService {
     }
     return false;
   }
-  // Sign in with Google
   GoogleAuth() {
     return this.AuthLogin(new auth.GoogleAuthProvider()).then((res: any) => {
       if (res) {
@@ -94,7 +92,6 @@ export class AuthService {
       }
     });
   }
-  // Auth logic to run auth providers
   AuthLogin(provider: any) {
     return this.afAuth
       .signInWithPopup(provider)
@@ -130,7 +127,7 @@ export class AuthService {
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['firstcomponent']);
+      this.router.navigate(['login']);
     });
   }
 

@@ -6,18 +6,18 @@
     <div class="inputs">
       <mat-form-field [formGroup]="form" appearance="fill">
         <mat-label>Email</mat-label>
-        <input matInput formControlName="email" type="email" [(ngModel)]="email">
+        <input matInput formControlName="email" type="email" value="email" [(ngModel)]="email">
         <mat-error *ngIf="form.hasError('email')">Email is invalid!</mat-error>
         <mat-error *ngIf="form.hasError('required')">Email is required!</mat-error>
       </mat-form-field>
       <mat-form-field [formGroup]="form" appearance="fill">
         <mat-label>Password</mat-label>
-        <input matInput formControlName="password" type="password" [(ngModel)]="password">
+        <input matInput formControlName="password" type="password" value="password" [(ngModel)]="password">
         <mat-error *ngIf="form.hasError('required')">Password is required!</mat-error>
         <mat-error *ngIf="form.hasError('minlength')">Password is too short!</mat-error>
         <mat-error *ngIf="form.hasError('maxlength')">Password is too long!</mat-error>
       </mat-form-field>
-      <button type="submit" [disabled]="!form.valid" class="sing-in-button" (click)="loginWithEmailandPassword()" mat-raised-button>Sign in</button>
+      <button type="submit" [disabled]="!form.valid" class="sing-in-button" mat-raised-button (click)="loginWithEmailandPassword()">Sign in</button>
       <button type="submit" [disabled]="!form.valid" class="sing-up-button" mat-raised-button (click)="createAccount()">Sign Up</button>
     </div>
   </div>

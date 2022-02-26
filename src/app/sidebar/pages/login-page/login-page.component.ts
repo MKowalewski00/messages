@@ -4,13 +4,13 @@ import {AuthService} from "../../../shared/services/auth.service";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-firstcomp',
-  templateUrl: './firstcomp.component.html',
-  styleUrls: ['./firstcomp.component.scss']
+  selector: 'app-login-page',
+  templateUrl: './login-page.component.html',
+  styleUrls: ['./login-page.component.scss']
 })
-export class FirstcompComponent implements OnInit {
+export class LoginPageComponent implements OnInit {
 
-  constructor(private _authService: AuthService, private _router: Router) { }
+  constructor(public _authService: AuthService, private _router: Router) { }
 
   ngOnInit(): void {
   }
@@ -21,15 +21,18 @@ export class FirstcompComponent implements OnInit {
       password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(64)])
     }
   )
-  email = '';
-  password = '';
 
+  email = ''
+  password = ''
 
   createAccount() {
-    this._authService.SignUp(this.email, this.password)
+    this._authService.SignUp(this.email,this.password)
   }
 
   loginWithEmailandPassword() {
-    this._authService.SignIn(this.email, this.password)
+    this._authService.SignIn(this.email, this.password).then(()=>{
+      this._router.navigate(['userinfo'])
+    })
   }
+
 }

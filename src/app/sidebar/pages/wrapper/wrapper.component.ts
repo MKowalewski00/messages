@@ -25,20 +25,25 @@ export class WrapperComponent{
   menu: MenuType[] =
     [
       {
-        routerLink: "firstcomponent",
-        icon: "filter_1",
-        name: "First Component"
+        routerLink: "login",
+        icon: "person",
+        name: "Login"
       },
       {
         routerLink: "userinfo",
         icon: "account_circle",
-        name: "User"
+        name: "User Panel"
       },
       {
         routerLink: "infocomponent",
         icon: "info",
         name: "Info"
       },
+      {
+        routerLink: 'messages',
+        icon: 'message',
+        name: 'Messages'
+      }
     ];
   // menuLoggedIn: MenuType[] = [
   //   {

@@ -7,7 +7,6 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatIconModule } from "@angular/material/icon";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { InfoComponent } from './pages/info/info.component';
-import {FirstcompComponent} from "./pages/firstcomp/firstcomp.component";
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
@@ -21,7 +20,8 @@ import {MatButtonModule} from "@angular/material/button";
 import {AuthService} from "../shared/services/auth.service";
 import {AuthGuard} from "../shared/guard/auth.guard";
 import { UserinfoPageComponent } from './pages/userinfo-page/userinfo-page.component';
-import {SecondcompComponent} from "./pages/secondcomp/secondcomp.component";
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { MessagesComponent } from './pages/messages/messages.component';
 
 
 
@@ -29,10 +29,10 @@ import {SecondcompComponent} from "./pages/secondcomp/secondcomp.component";
 @NgModule({
   declarations: [
     WrapperComponent,
-    FirstcompComponent,
-    SecondcompComponent,
     InfoComponent,
-    UserinfoPageComponent
+    UserinfoPageComponent,
+    LoginPageComponent,
+    MessagesComponent
   ],
     imports: [
         CommonModule,

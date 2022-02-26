@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {WrapperComponent} from "./pages/wrapper/wrapper.component";
-import {FirstcompComponent} from "./pages/firstcomp/firstcomp.component";
 import {InfoComponent} from "./pages/info/info.component";
 import {AuthGuard} from "../shared/guard/auth.guard";
 import {UserinfoPageComponent} from "./pages/userinfo-page/userinfo-page.component";
-import {SecondcompComponent} from "./pages/secondcomp/secondcomp.component";
+import {LoginPageComponent} from "./pages/login-page/login-page.component";
+import {MessagesComponent} from "./pages/messages/messages.component";
 
 const routes: Routes = [
   {
@@ -13,12 +13,8 @@ const routes: Routes = [
     component: WrapperComponent,
     children: [
       {
-        path: 'firstcomponent',
-        component: FirstcompComponent
-      },
-      {
-        path: 'secondcomponent',
-        component: SecondcompComponent
+        path: 'login',
+        component: LoginPageComponent
       },
       {
         path: 'infocomponent',
@@ -28,12 +24,22 @@ const routes: Routes = [
         path: 'userinfo',
         component: UserinfoPageComponent,
         canActivate: [AuthGuard]
+      },
+      {
+       path: 'messages',
+       component: MessagesComponent,
+       canActivate: [AuthGuard]
+      },
+      {
+        path: '',
+        redirectTo: '/login',
+        pathMatch: 'full'
       }
     ]
   },
   {
     path: '**',
-    redirectTo: '/firstcomponent',
+    redirectTo: '/login',
     pathMatch: 'full'
   }
 ];

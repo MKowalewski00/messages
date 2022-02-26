@@ -10,11 +10,13 @@ import {Router} from "@angular/router";
 })
 export class UserinfoPageComponent implements OnInit {
 
-  constructor(private _authService: AuthService, private _router: Router) {}
+
+  constructor(private _authService: AuthService, private _router: Router) {
+  }
 
   ngOnInit(): void {}
 
-  user : User = JSON.parse(localStorage.getItem('user')!)
+  user: User = JSON.parse(localStorage.getItem('user')!)
 
   displayName = this.user.displayName;
   email = this.user.email;
